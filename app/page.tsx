@@ -3,7 +3,6 @@
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollReveal from "./components/ScrollReveal";
-import Counter from "./components/Counter";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -47,20 +46,11 @@ const SERVICES = [
   },
 ];
 
-const STATS = [
-  { value: 25, suffix: "+", label: "Years of Excellence" },
-  { value: 12, suffix: "B+", prefix: "$", label: "Assets Under Advisory" },
-  { value: 200, suffix: "+", label: "Institutional Clients" },
-  { value: 6, suffix: "", label: "Global Offices" },
-];
+
 
 const LOCATIONS = [
   { city: "Mumbai", role: "Headquarters" },
-  { city: "Dubai", role: "Middle East Office" },
-  { city: "Singapore", role: "Asia-Pacific Office" },
-  { city: "London", role: "Europe Office" },
-  { city: "New York", role: "Americas Office" },
-  { city: "Hong Kong", role: "North Asia Office" },
+  { city: "Dubai, UAE", role: "Coming Soon" },
 ];
 
 /* ───────────────────────────────────────────────
@@ -191,10 +181,10 @@ export default function Home() {
         {/* ═══════════════════════════════════════
            SERVICES SECTION
            ═══════════════════════════════════════ */}
-        <section className="py-28 sm:py-36 px-6 sm:px-8 lg:px-12">
+        <section className="py-20 sm:py-24 px-6 sm:px-8 lg:px-12">
           <div className="mx-auto max-w-[1360px]">
             {/* Section header */}
-            <div className="max-w-[520px] mb-20">
+            <div className="max-w-[520px] mb-14">
               <ScrollReveal>
                 <p className="text-[11px] font-sans font-medium uppercase tracking-[0.3em] text-secondary mb-5">
                   What We Do
@@ -256,49 +246,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ═══════════════════════════════════════
-           STATS SECTION
-           ═══════════════════════════════════════ */}
-        <section className="py-24 sm:py-32 px-6 sm:px-8 lg:px-12 bg-surface-dark text-white">
-          <div className="mx-auto max-w-[1360px]">
-            <ScrollReveal>
-              <p className="text-[11px] font-sans font-medium uppercase tracking-[0.3em] text-[#888] mb-5 text-center">
-                Our Impact
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.15] tracking-[-0.01em] text-white text-center mb-16 sm:mb-20">
-                A Legacy of{" "}
-                <span className="text-bronze">Institutional Excellence</span>
-              </h2>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-              {STATS.map((stat, i) => (
-                <ScrollReveal key={stat.label} delay={i * 0.1}>
-                  <div className="text-center">
-                    <div className="font-serif text-[clamp(2.5rem,5vw,3.8rem)] font-semibold leading-none mb-3">
-                      <Counter
-                        target={stat.value}
-                        prefix={stat.prefix || ""}
-                        suffix={stat.suffix}
-                        duration={2.2}
-                      />
-                    </div>
-                    <p className="text-[12px] font-sans uppercase tracking-[0.2em] text-[#777]">
-                      {stat.label}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ═══════════════════════════════════════
            PHILOSOPHY SECTION
            ═══════════════════════════════════════ */}
-        <section className="py-28 sm:py-36 px-6 sm:px-8 lg:px-12 border-b border-border/30">
+        <section className="py-20 sm:py-24 px-6 sm:px-8 lg:px-12 border-b border-border/30">
           <div className="mx-auto max-w-[1360px] flex items-center justify-center">
             <ScrollReveal direction="scale">
               <div className="text-center max-w-[680px]">
@@ -324,7 +276,7 @@ export default function Home() {
         {/* ═══════════════════════════════════════
            GLOBAL PRESENCE SECTION
            ═══════════════════════════════════════ */}
-        <section className="py-28 sm:py-36 px-6 sm:px-8 lg:px-12">
+        <section className="py-20 sm:py-24 px-6 sm:px-8 lg:px-12">
           <div className="mx-auto max-w-[1360px]">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
               {/* Left: content */}
@@ -343,10 +295,10 @@ export default function Home() {
                 </ScrollReveal>
                 <ScrollReveal delay={0.2}>
                   <p className="text-[15px] leading-[1.75] text-secondary font-sans max-w-[480px] mb-10">
-                    With a presence in six major financial hubs, we deliver local
-                    insight with global perspective — ensuring our clients
-                    benefit from cross-border opportunities and real-time market
-                    intelligence.
+                    Headquartered in Mumbai with offices in Dubai, UAE coming
+                    soon — we deliver local insight with global perspective,
+                    ensuring our clients benefit from cross-border opportunities
+                    and real-time market intelligence.
                   </p>
                 </ScrollReveal>
                 <ScrollReveal delay={0.3}>
@@ -363,7 +315,7 @@ export default function Home() {
               </div>
 
               {/* Right: location grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-10">
+              <div className="grid grid-cols-2 gap-x-10 gap-y-10">
                 {LOCATIONS.map((loc, i) => (
                   <ScrollReveal key={loc.city} delay={0.1 + i * 0.08} direction="up">
                     <div className="group">

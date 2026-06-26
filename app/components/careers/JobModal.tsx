@@ -8,6 +8,7 @@ interface JobModalProps {
   job: JobListing | null;
   isOpen: boolean;
   onClose: () => void;
+  onApply: (job: JobListing) => void;
 }
 
 function DetailRow({ label, value }: { label: string; value: string }) {
@@ -24,7 +25,7 @@ function DetailRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-export default function JobModal({ job, isOpen, onClose }: JobModalProps) {
+export default function JobModal({ job, isOpen, onClose, onApply }: JobModalProps) {
   // Lock body scroll
   useEffect(() => {
     if (isOpen) {
@@ -131,15 +132,15 @@ export default function JobModal({ job, isOpen, onClose }: JobModalProps) {
 
               {/* Footer with Apply Now */}
               <div className="px-8 py-6 border-t border-border/30 shrink-0 bg-background">
-                <a
-                  href={`mailto:${job.applicationEmail || "careers@arhamcapital.com"}`}
+                <button
+                  onClick={() => job && onApply(job)}
                   className="group inline-flex items-center justify-center gap-2.5 w-full bg-foreground text-background text-[12px] font-sans font-medium uppercase tracking-[0.14em] px-8 py-4 rounded-sm transition-all duration-500 ease-out hover:bg-bronze"
                 >
                   <span>Apply Now</span>
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-400 ease-out group-hover:translate-x-[3px]" aria-hidden="true">
                     <path d="M1 7H12.5M12.5 7L8 2.5M12.5 7L8 11.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                </a>
+                </button>
               </div>
             </div>
           </motion.div>

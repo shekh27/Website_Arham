@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import ScrollReveal from "../components/ScrollReveal";
 import JobCard from "../components/careers/JobCard";
 import JobModal from "../components/careers/JobModal";
+import ApplicationModal from "../components/careers/ApplicationModal";
 import { fetchJobs, type JobListing } from "../lib/sheets";
 
 const WHY_WORK = [
@@ -47,6 +48,8 @@ export default function CareersPage() {
   const [error, setError] = useState<string | null>(null);
   const [selectedJob, setSelectedJob] = useState<JobListing | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [applyJob, setApplyJob] = useState<JobListing | null>(null);
+  const [applyModalOpen, setApplyModalOpen] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -82,8 +85,21 @@ export default function CareersPage() {
 
   const closeModal = () => {
     setModalOpen(false);
-    // Delay clearing job to allow exit animation
     setTimeout(() => setSelectedJob(null), 350);
+  };
+
+  const handleApply = (job: JobListing) => {
+    // Close the job details modal, then open application modal
+    setModalOpen(false);
+    setApplyJob(job);
+    setTimeout(() => {
+      setApplyModalOpen(true);
+    }, 380);
+  };
+
+  const closeApplyModal = () => {
+    setApplyModalOpen(false);
+    setTimeout(() => setApplyJob(null), 400);
   };
 
   return (
@@ -94,7 +110,7 @@ export default function CareersPage() {
         {/* ═══════════════════════════════════════
            HERO SECTION
            ═══════════════════════════════════════ */}
-        <section className="pt-16 pb-24 sm:pb-32 px-6 sm:px-8 lg:px-12">
+        <section className="pt-16 pb-10 sm:pb-12 px-6 sm:px-8 lg:px-12">
           <div className="mx-auto max-w-[1360px]">
             <ScrollReveal>
               <p className="text-[11px] font-sans font-medium uppercase tracking-[0.3em] text-secondary mb-5">
@@ -122,7 +138,7 @@ export default function CareersPage() {
         {/* ═══════════════════════════════════════
            OPEN POSITIONS
            ═══════════════════════════════════════ */}
-        <section className="py-24 sm:py-32 px-6 sm:px-8 lg:px-12">
+        <section className="py-12 sm:py-16 px-6 sm:px-8 lg:px-12">
           <div className="mx-auto max-w-[1360px]">
             <ScrollReveal>
               <p className="text-[11px] font-sans font-medium uppercase tracking-[0.3em] text-secondary mb-5">
@@ -212,7 +228,7 @@ export default function CareersPage() {
         {/* ═══════════════════════════════════════
            WHY WORK WITH US
            ═══════════════════════════════════════ */}
-        <section className="py-24 sm:py-32 px-6 sm:px-8 lg:px-12 bg-surface-dark text-white">
+        <section className="py-14 sm:py-18 px-6 sm:px-8 lg:px-12 bg-surface-dark text-white">
           <div className="mx-auto max-w-[1360px]">
             <ScrollReveal>
               <p className="text-[11px] font-sans font-medium uppercase tracking-[0.3em] text-[#888] mb-5 text-center">
@@ -220,15 +236,15 @@ export default function CareersPage() {
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.15] text-white text-center mb-16">
+              <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.15] text-white text-center mb-10">
                 Why Work <span className="text-bronze">With Us</span>
               </h2>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-[960px] mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {WHY_WORK.map((item, i) => (
                 <ScrollReveal key={item.title} delay={i * 0.1}>
-                  <div className="group text-center p-8 border border-[#222] rounded-sm hover:border-bronze/30 transition-all duration-400">
+                  <div className="group text-center p-6 border border-[#222] rounded-sm hover:border-bronze/30 transition-all duration-400">
                     <div className="inline-flex items-center justify-center w-14 h-14 rounded-full border border-[#333] text-[#999] group-hover:border-bronze group-hover:text-bronze transition-all duration-400 mb-6">
                       {item.icon}
                     </div>
@@ -248,7 +264,7 @@ export default function CareersPage() {
         {/* ═══════════════════════════════════════
            CTA SECTION
            ═══════════════════════════════════════ */}
-        <section className="py-24 sm:py-32 px-6 sm:px-8 lg:px-12">
+        <section className="py-14 sm:py-16 px-6 sm:px-8 lg:px-12">
           <div className="mx-auto max-w-[1360px] text-center">
             <ScrollReveal>
               <div className="w-8 h-[1px] bg-bronze mx-auto mb-8 opacity-60" />
@@ -290,6 +306,15 @@ export default function CareersPage() {
         job={selectedJob}
         isOpen={modalOpen}
         onClose={closeModal}
+        onApply={handleApply}
+      />
+
+      {/* Application Form Modal */}
+      <ApplicationModal
+        isOpen={applyModalOpen}
+        onClose={closeApplyModal}
+        jobId={applyJob?.jobId || ""}
+        jobTitle={applyJob?.jobTitle || ""}
       />
     </>
   );

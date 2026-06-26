@@ -36,7 +36,7 @@ export default function MarketsPage() {
       <Navbar />
       <main className="flex-1">
         {/* Hero */}
-        <section className="pt-16 pb-24 sm:pb-32 px-6 sm:px-8 lg:px-12">
+        <section className="pt-16 pb-10 sm:pb-12 px-6 sm:px-8 lg:px-12">
           <div className="mx-auto max-w-[1360px]">
             <ScrollReveal>
               <p className="text-[11px] font-sans font-medium uppercase tracking-[0.3em] text-secondary mb-5">
@@ -61,7 +61,7 @@ export default function MarketsPage() {
         <div className="hr-bronze mx-6 sm:mx-8 lg:mx-12" />
 
         {/* Key Geographies */}
-        <section className="py-24 sm:py-32 px-6 sm:px-8 lg:px-12">
+        <section className="py-12 sm:py-14 px-6 sm:px-8 lg:px-12">
           <div className="mx-auto max-w-[1360px]">
             <ScrollReveal>
               <p className="text-[11px] font-sans font-medium uppercase tracking-[0.3em] text-secondary mb-5">
@@ -96,7 +96,7 @@ export default function MarketsPage() {
         </section>
 
         {/* Expansion Plans */}
-        <section className="py-24 sm:py-32 px-6 sm:px-8 lg:px-12 bg-surface-dark text-white">
+        <section className="py-12 sm:py-14 px-6 sm:px-8 lg:px-12 bg-surface-dark text-white">
           <div className="mx-auto max-w-[1360px]">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
               <div>
@@ -140,7 +140,7 @@ export default function MarketsPage() {
         </section>
 
         {/* Our Approach in These Markets */}
-        <section className="py-24 sm:py-32 px-6 sm:px-8 lg:px-12">
+        <section className="py-8 sm:py-10 px-6 sm:px-8 lg:px-12">
           <div className="mx-auto max-w-[1360px]">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
               {/* Decorative visual */}
@@ -188,7 +188,7 @@ export default function MarketsPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-24 px-6 sm:px-8 lg:px-12 border-t border-border/30">
+        <section className="py-8 sm:py-10 px-6 sm:px-8 lg:px-12 border-t border-border/30">
           <div className="mx-auto max-w-[1360px] text-center">
             <ScrollReveal>
               <div className="w-8 h-[1px] bg-bronze mx-auto mb-8 opacity-60" />

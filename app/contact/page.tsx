@@ -31,7 +31,7 @@ export default function ContactPage() {
       <Navbar />
       <main className="flex-1">
         {/* Hero */}
-        <section className="pt-16 pb-24 sm:pb-32 px-6 sm:px-8 lg:px-12">
+        <section className="pt-16 pb-10 sm:pb-12 px-6 sm:px-8 lg:px-12">
           <div className="mx-auto max-w-[1360px]">
             <ScrollReveal>
               <p className="text-[11px] font-sans font-medium uppercase tracking-[0.3em] text-secondary mb-5">
@@ -55,7 +55,7 @@ export default function ContactPage() {
         <div className="hr-bronze mx-6 sm:mx-8 lg:mx-12" />
 
         {/* Form + Contact Info */}
-        <section className="py-24 sm:py-32 px-6 sm:px-8 lg:px-12">
+        <section className="py-12 sm:py-16 px-6 sm:px-8 lg:px-12">
           <div className="mx-auto max-w-[1360px] grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             {/* Form */}
             <div>
